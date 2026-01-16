@@ -1,0 +1,566 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="PrépaNaturalisation : entraînez-vous pour l’entretien de naturalisation et l’examen civique avec des questions, quiz et simulations." />
+  <meta name="theme-color" content="#0B5FFF" />
+
+  <!-- Open Graph / LinkedIn -->
+  <meta property="og:title" content="PrépaNaturalisation — Préparez l’entretien & l’examen civique" />
+  <meta property="og:description" content="Questions structurées, quiz, réponses libres et simulation d’entretien. Téléchargez sur Google Play." />
+  <meta property="og:type" content="website" />
+  <!-- Remplace par l’URL de ton image sociale (1200x630) -->
+  <meta property="og:image" content="https://example.com/og-prepanaturalisation.jpg" />
+
+  <title>PrépaNaturalisation — Entretien de naturalisation & Examen civique</title>
+
+  <style>
+    :root{
+      --bg:#070B18;
+      --card:#0E1633;
+      --text:#EAF0FF;
+      --muted:#B8C4E6;
+      --brand:#0B5FFF;
+      --brand2:#7C3AED;
+      --ok:#22C55E;
+      --border:rgba(255,255,255,.12);
+      --shadow: 0 18px 60px rgba(0,0,0,.45);
+      --radius:18px;
+      --max:1120px;
+      --font: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:var(--font);
+      color:var(--text);
+      background:
+        radial-gradient(1000px 700px at 15% 10%, rgba(11,95,255,.35), transparent 55%),
+        radial-gradient(900px 650px at 85% 5%, rgba(124,58,237,.28), transparent 55%),
+        radial-gradient(900px 700px at 55% 95%, rgba(34,197,94,.12), transparent 60%),
+        var(--bg);
+      line-height:1.55;
+    }
+
+    a{color:inherit; text-decoration:none}
+    .container{max-width:var(--max); margin:0 auto; padding:0 20px}
+    .pill{
+      display:inline-flex; align-items:center; gap:.5rem;
+      padding:8px 12px;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.06);
+      border-radius:999px;
+      color:var(--muted);
+      backdrop-filter: blur(10px);
+    }
+    .nav{
+      position:sticky; top:0; z-index:50;
+      background: rgba(7,11,24,.55);
+      backdrop-filter: blur(12px);
+      border-bottom:1px solid rgba(255,255,255,.08);
+    }
+    .nav-inner{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:14px 0;
+      gap:14px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px; min-width:220px;
+    }
+    .logo{
+      width:40px; height:40px; border-radius:12px;
+      background: linear-gradient(135deg, var(--brand), var(--brand2));
+      box-shadow: 0 10px 30px rgba(11,95,255,.25);
+      flex:0 0 auto;
+    }
+    .brand b{font-size:15px; letter-spacing:.2px}
+    .brand span{display:block; font-size:12px; color:var(--muted)}
+
+    .nav-links{
+      display:flex; align-items:center; gap:14px;
+      flex-wrap:wrap; justify-content:flex-end;
+    }
+    .nav-links a{
+      color:var(--muted);
+      padding:8px 10px;
+      border-radius:10px;
+      border:1px solid transparent;
+    }
+    .nav-links a:hover{
+      color:var(--text);
+      border-color:rgba(255,255,255,.12);
+      background: rgba(255,255,255,.06);
+    }
+
+    .cta{
+      display:inline-flex; align-items:center; justify-content:center;
+      gap:10px;
+      padding:12px 14px;
+      border-radius:14px;
+      background: linear-gradient(135deg, var(--brand), var(--brand2));
+      border:1px solid rgba(255,255,255,.12);
+      box-shadow: 0 18px 50px rgba(11,95,255,.22);
+      font-weight:700;
+      white-space:nowrap;
+    }
+    .cta:hover{filter:brightness(1.05)}
+    .cta:active{transform: translateY(1px)}
+    .ghost{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:12px 14px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      color:var(--text);
+      font-weight:650;
+      white-space:nowrap;
+    }
+
+    /* Hero */
+    header.hero{padding:38px 0 18px}
+    .hero-grid{
+      display:grid; grid-template-columns: 1.2fr .8fr; gap:26px;
+      align-items:stretch;
+    }
+    @media (max-width: 920px){
+      .hero-grid{grid-template-columns:1fr; }
+      .brand{min-width:auto}
+    }
+    .hero h1{
+      margin:14px 0 10px;
+      font-size: clamp(30px, 4vw, 44px);
+      line-height:1.1;
+      letter-spacing: -0.5px;
+    }
+    .hero p{margin:0 0 18px; color:var(--muted); font-size:16px; max-width:60ch}
+    .hero-actions{
+      display:flex; flex-wrap:wrap; gap:12px; align-items:center;
+      margin-top:14px;
+    }
+
+    .play-badge{
+      display:inline-block;
+      border-radius:12px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(0,0,0,.25);
+    }
+    .play-badge img{
+      display:block;
+      height:54px;
+      width:auto;
+    }
+
+    .trust{
+      margin-top:12px;
+      display:flex; flex-wrap:wrap; gap:10px;
+      color:var(--muted);
+      font-size:13px;
+    }
+    .check{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:8px 10px;
+      border:1px solid rgba(255,255,255,.10);
+      border-radius:999px;
+      background: rgba(255,255,255,.06);
+    }
+    .dot{
+      width:10px; height:10px; border-radius:999px; background: var(--ok);
+      box-shadow: 0 0 0 6px rgba(34,197,94,.15);
+    }
+
+    /* Mock */
+    .mock{
+      border:1px solid rgba(255,255,255,.12);
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      position:relative;
+      min-height: 360px;
+    }
+    .mock::before{
+      content:"";
+      position:absolute; inset:-2px;
+      background: radial-gradient(500px 220px at 30% 10%, rgba(11,95,255,.35), transparent 60%),
+                  radial-gradient(520px 260px at 80% 25%, rgba(124,58,237,.28), transparent 60%);
+      pointer-events:none;
+    }
+    .mock-inner{
+      position:relative;
+      padding:18px;
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+    }
+    .phone{
+      margin-top:6px;
+      border-radius: 26px;
+      border:1px solid rgba(255,255,255,.16);
+      background: rgba(0,0,0,.35);
+      height: 300px;
+      display:grid;
+      place-items:center;
+      overflow:hidden;
+    }
+    .phone small{color:var(--muted); padding:18px; text-align:center}
+    .grid3{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:14px;
+      margin-top:18px;
+    }
+    @media (max-width: 920px){
+      .grid3{grid-template-columns:1fr}
+    }
+
+    .card{
+      border:1px solid rgba(255,255,255,.12);
+      border-radius: var(--radius);
+      background: rgba(255,255,255,.05);
+      padding:16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.25);
+    }
+    .card h3{margin:0 0 8px; font-size:16px}
+    .card p{margin:0; color:var(--muted); font-size:14px}
+
+    section{padding:34px 0}
+    section h2{
+      margin:0 0 12px;
+      font-size: clamp(22px, 2.5vw, 30px);
+      letter-spacing:-0.3px;
+    }
+    .sub{color:var(--muted); margin:0 0 18px; max-width:75ch}
+
+    /* Feature blocks */
+    .features{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:14px;
+    }
+    @media (max-width: 920px){
+      .features{grid-template-columns:1fr}
+    }
+    .feature{
+      border:1px solid rgba(255,255,255,.12);
+      border-radius: var(--radius);
+      background: rgba(255,255,255,.05);
+      padding:16px;
+    }
+    .badge{
+      display:inline-flex; align-items:center; gap:8px;
+      font-size:12px; color:var(--muted);
+      margin-bottom:10px;
+    }
+    .ico{
+      width:26px; height:26px; border-radius:10px;
+      background: rgba(255,255,255,.08);
+      border:1px solid rgba(255,255,255,.12);
+      display:grid; place-items:center;
+      font-weight:800;
+      color: var(--text);
+    }
+
+    /* FAQ */
+    details{
+      border:1px solid rgba(255,255,255,.12);
+      border-radius: var(--radius);
+      background: rgba(255,255,255,.05);
+      padding:14px 16px;
+    }
+    details + details{margin-top:10px}
+    summary{
+      cursor:pointer;
+      font-weight:700;
+    }
+    details p{margin:10px 0 0; color:var(--muted)}
+
+    /* Footer CTA */
+    .final-cta{
+      border:1px solid rgba(255,255,255,.12);
+      border-radius: calc(var(--radius) + 6px);
+      background: linear-gradient(135deg, rgba(11,95,255,.18), rgba(124,58,237,.14));
+      padding:18px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+      flex-wrap:wrap;
+      box-shadow: var(--shadow);
+    }
+    .final-cta b{font-size:16px}
+    .final-cta span{display:block; color:var(--muted); font-size:13px; margin-top:4px}
+    footer{
+      padding:22px 0 30px;
+      color:var(--muted);
+      font-size:13px;
+      border-top:1px solid rgba(255,255,255,.10);
+    }
+    footer a{color:var(--text); text-decoration:underline; text-underline-offset:3px}
+
+    .sr-only{
+      position:absolute; width:1px; height:1px; padding:0; margin:-1px;
+      overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- CONFIG -->
+  <!-- Remplace ce lien par ton lien Google Play -->
+  <script>
+    window.__APP = {
+      playUrl: "https://play.google.com/store/apps/details?id=com.dataadvans.prepanaturalisation"
+    };
+  </script>
+
+  <div class="nav">
+    <div class="container">
+      <div class="nav-inner">
+        <a class="brand" href="#top" aria-label="PrépaNaturalisation - Accueil">
+          <div class="logo" aria-hidden="true"></div>
+          <div>
+            <b>PrépaNaturalisation</b>
+            <span>Entretien de naturalisation & Examen civique</span>
+          </div>
+        </a>
+
+        <div class="nav-links">
+          <a href="#fonctionnalites">Fonctionnalités</a>
+          <a href="#comment">Comment ça marche</a>
+          <a href="#faq">FAQ</a>
+          <a href="#telecharger" class="cta">Télécharger</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <main id="top">
+    <header class="hero">
+      <div class="container">
+        <div class="pill">✅ Préparation structurée • 🎯 Pratique • 📱 Mobile</div>
+
+        <div class="hero-grid">
+          <div>
+            <h1>Préparez sereinement<br/>l’entretien de naturalisation<br/>et l’examen civique</h1>
+
+            <p>
+              Révisez avec des questions organisées, des quiz, des réponses libres et une simulation complète,
+              pour vous entraîner dans des conditions proches du réel.
+            </p>
+
+            <div class="hero-actions" id="telecharger">
+              <a class="cta" id="ctaTop" href="#" rel="noopener" target="_blank">
+                Télécharger sur Google Play
+              </a>
+
+              <a class="ghost" href="#fonctionnalites">Voir les fonctionnalités</a>
+
+              <!-- Badge officiel Google Play (FR) -->
+              <a class="play-badge" id="badgeTop" href="#" rel="noopener" target="_blank" aria-label="Disponible sur Google Play">
+                <img
+                  src="https://play.google.com/intl/en_us/badges/static/images/badges/fr_badge_web_generic.png"
+                  alt="Disponible sur Google Play"
+                  loading="lazy"
+                />
+              </a>
+            </div>
+
+            <div class="trust" aria-label="Points de confiance">
+              <div class="check"><span class="dot" aria-hidden="true"></span> Accès direct Google Play</div>
+              <div class="check"><span class="dot" aria-hidden="true"></span> Entraînement progressif</div>
+              <div class="check"><span class="dot" aria-hidden="true"></span> Interface simple & claire</div>
+            </div>
+          </div>
+
+          <div class="mock" aria-label="Aperçu de l’application">
+            <div class="mock-inner">
+              <div class="pill">Aperçu</div>
+              <div class="phone">
+                <!-- Remplace par une vraie capture: <img src="screenshot1.jpg" alt="..." /> -->
+                <small>
+                  Ajoute ici une capture d’écran (ou un mockup) pour rendre la page encore plus convaincante.<br/>
+                  Format conseillé : 1080×1920.
+                </small>
+              </div>
+
+              <div class="grid3">
+                <div class="card">
+                  <h3>+300 questions</h3>
+                  <p>Organisées par thèmes, pour réviser efficacement.</p>
+                </div>
+                <div class="card">
+                  <h3>Quiz & réponses libres</h3>
+                  <p>Deux façons de s’entraîner selon votre niveau.</p>
+                </div>
+                <div class="card">
+                  <h3>Simulation d’entretien</h3>
+                  <p>Pour vous mettre en condition et gagner en confiance.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </header>
+
+    <section id="fonctionnalites">
+      <div class="container">
+        <h2>Fonctionnalités principales</h2>
+        <p class="sub">
+          Tout ce qu’il faut pour une préparation structurée et rassurante, centrée sur l’entretien de naturalisation
+          et l’examen civique.
+        </p>
+
+        <div class="features">
+          <div class="feature">
+            <div class="badge"><span class="ico">🧠</span>Contenu structuré</div>
+            <h3>Questions organisées par thèmes</h3>
+            <p class="sub">Travaillez étape par étape : institutions, histoire, valeurs, vie en France, etc.</p>
+          </div>
+
+          <div class="feature">
+            <div class="badge"><span class="ico">📝</span>Entraînement</div>
+            <h3>Quiz & réponses libres</h3>
+            <p class="sub">Révisez en QCM ou entraînez-vous à formuler vos réponses comme à l’oral.</p>
+          </div>
+
+          <div class="feature">
+            <div class="badge"><span class="ico">🎙️</span>Simulation</div>
+            <h3>Simulation complète d’entretien</h3>
+            <p class="sub">Enchaînez des questions comme le jour J, pour réduire le stress et gagner en aisance.</p>
+          </div>
+
+          <div class="feature">
+            <div class="badge"><span class="ico">🇫🇷</span>Examen civique</div>
+            <h3>Révisions dédiées</h3>
+            <p class="sub">Reprenez les grandes notions attendues et entraînez-vous de manière régulière.</p>
+          </div>
+
+          <div class="feature">
+            <div class="badge"><span class="ico">📊</span>Suivi</div>
+            <h3>Progression & répétition</h3>
+            <p class="sub">Revenez sur vos points faibles et consolidez vos acquis au fil des sessions.</p>
+          </div>
+
+          <div class="feature">
+            <div class="badge"><span class="ico">🔒</span>Confiance</div>
+            <h3>Téléchargement sécurisé</h3>
+            <p class="sub">Téléchargez directement depuis Google Play pour plus de sécurité et de sérénité.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="comment">
+      <div class="container">
+        <h2>Comment ça marche ?</h2>
+        <p class="sub">En 3 étapes simples.</p>
+
+        <div class="grid3">
+          <div class="card">
+            <h3>1) Téléchargez</h3>
+            <p>Installez l’application depuis Google Play.</p>
+          </div>
+          <div class="card">
+            <h3>2) Révisez</h3>
+            <p>Choisissez un thème : entretien de naturalisation ou examen civique.</p>
+          </div>
+          <div class="card">
+            <h3>3) Entraînez-vous</h3>
+            <p>Faites des quiz et lancez une simulation pour vous mettre en condition.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq">
+      <div class="container">
+        <h2>FAQ</h2>
+
+        <details>
+          <summary>Est-ce que l’application couvre l’entretien de naturalisation et l’examen civique ?</summary>
+          <p>Oui : vous y trouverez des contenus dédiés à l’entretien de naturalisation et à l’examen civique.</p>
+        </details>
+
+        <details>
+          <summary>À qui s’adresse PrépaNaturalisation ?</summary>
+          <p>À toute personne souhaitant réviser de façon structurée et s’entraîner avant l’entretien et/ou l’examen civique.</p>
+        </details>
+
+        <details>
+          <summary>Comment télécharger l’application ?</summary>
+          <p>Cliquez sur “Télécharger sur Google Play” (bouton ou badge) pour ouvrir directement la fiche officielle.</p>
+        </details>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="final-cta">
+          <div>
+            <b>Prêt(e) à vous entraîner dès aujourd’hui ?</b>
+            <span>Téléchargez PrépaNaturalisation sur Google Play et commencez votre préparation.</span>
+          </div>
+
+          <div style="display:flex; gap:12px; flex-wrap:wrap; align-items:center;">
+            <a class="cta" id="ctaBottom" href="#" rel="noopener" target="_blank">Télécharger sur Google Play</a>
+            <a class="play-badge" id="badgeBottom" href="#" rel="noopener" target="_blank" aria-label="Disponible sur Google Play">
+              <img
+                src="https://play.google.com/intl/en_us/badges/static/images/badges/fr_badge_web_generic.png"
+                alt="Disponible sur Google Play"
+                loading="lazy"
+              />
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <div style="display:flex; gap:10px; flex-wrap:wrap; justify-content:space-between; align-items:center;">
+          <div>
+            © <span id="year"></span> PrépaNaturalisation • Tous droits réservés
+          </div>
+          <div style="display:flex; gap:14px; flex-wrap:wrap;">
+            <!-- Remplace par tes URLs -->
+            <a href="#top">Haut de page</a>
+            <a href="https://example.com/politique-confidentialite.html">Politique de confidentialité</a>
+            <a href="mailto:contact@example.com">Contact</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    // Set year
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Inject Google Play URL (single source of truth)
+    const playUrl = (window.__APP && window.__APP.playUrl) || "#";
+    ["ctaTop","ctaBottom","badgeTop","badgeBottom"].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.href = playUrl;
+    });
+
+    // Smooth scroll for internal anchors (nice UX)
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener("click", (e) => {
+        const href = a.getAttribute("href");
+        if (!href || href === "#") return;
+        const target = document.querySelector(href);
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
