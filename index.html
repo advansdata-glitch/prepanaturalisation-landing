@@ -7,7 +7,7 @@
   <meta name="theme-color" content="#0B5FFF" />
 
   <!-- Open Graph / LinkedIn -->
-  <meta property="og:title" content="PrépaNaturalisation — Préparez l’entretien & l’examen civique" />
+  <meta property="og:title" content="PrépaNaturalisation — Entretien de naturalisation & Examen civique" />
   <meta property="og:description" content="Questions structurées, quiz, réponses libres et simulation d’entretien. Téléchargez sur Google Play." />
   <meta property="og:type" content="website" />
   <!-- Remplace par l’URL de ton image sociale (1200x630) -->
@@ -206,7 +206,7 @@
       place-items:center;
       overflow:hidden;
     }
-    .phone small{color:var(--muted); padding:18px; text-align:center}
+
     .grid3{
       display:grid;
       grid-template-columns: repeat(3, 1fr);
@@ -300,21 +300,14 @@
       border-top:1px solid rgba(255,255,255,.10);
     }
     footer a{color:var(--text); text-decoration:underline; text-underline-offset:3px}
-
-    .sr-only{
-      position:absolute; width:1px; height:1px; padding:0; margin:-1px;
-      overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0;
-    }
   </style>
 </head>
 
 <body>
-  <!-- CONFIG -->
-  <!-- Remplace ce lien par ton lien Google Play -->
+  <!-- Lien officiel Google Play (source unique) -->
+  <!-- Astuce: si tu changes l’URL, change-la seulement ici -->
   <script>
-    window.__APP = {
-      playUrl: "https://play.google.com/store/apps/details?id=com.dataadvans.prepanaturalisation"
-    };
+    const PLAY_URL = "https://play.google.com/store/apps/details?id=com.dataadvans.prepanaturalisation";
   </script>
 
   <div class="nav">
@@ -332,7 +325,14 @@
           <a href="#fonctionnalites">Fonctionnalités</a>
           <a href="#comment">Comment ça marche</a>
           <a href="#faq">FAQ</a>
-          <a href="#telecharger" class="cta">Télécharger</a>
+
+          <!-- ✅ CTA NAV: lien direct (ne dépend pas du JS) -->
+          <a class="cta"
+             href="https://play.google.com/store/apps/details?id=com.dataadvans.prepanaturalisation"
+             target="_blank"
+             rel="noopener">
+            Télécharger
+          </a>
         </div>
       </div>
     </div>
@@ -353,14 +353,22 @@
             </p>
 
             <div class="hero-actions" id="telecharger">
-              <a class="cta" id="ctaTop" href="#" rel="noopener" target="_blank">
+              <!-- ✅ CTA HERO: lien direct -->
+              <a class="cta"
+                 href="https://play.google.com/store/apps/details?id=com.dataadvans.prepanaturalisation"
+                 rel="noopener"
+                 target="_blank">
                 Télécharger sur Google Play
               </a>
 
               <a class="ghost" href="#fonctionnalites">Voir les fonctionnalités</a>
 
-              <!-- Badge officiel Google Play (FR) -->
-              <a class="play-badge" id="badgeTop" href="#" rel="noopener" target="_blank" aria-label="Disponible sur Google Play">
+              <!-- ✅ Badge officiel Google Play (FR) -->
+              <a class="play-badge"
+                 href="https://play.google.com/store/apps/details?id=com.dataadvans.prepanaturalisation"
+                 rel="noopener"
+                 target="_blank"
+                 aria-label="Disponible sur Google Play">
                 <img
                   src="https://play.google.com/intl/en_us/badges/static/images/badges/fr_badge_web_generic.png"
                   alt="Disponible sur Google Play"
@@ -376,16 +384,23 @@
             </div>
           </div>
 
-          <div class="mock" aria-label="Aperçu de l’application">
+          <div class="mock" aria-label="Aperçu">
             <div class="mock-inner">
               <div class="pill">Aperçu</div>
-              <div class="phone">
-                <!-- Remplace par une vraie capture: <img src="screenshot1.jpg" alt="..." /> -->
-                <small>
-                  Ajoute ici une capture d’écran (ou un mockup) pour rendre la page encore plus convaincante.<br/>
-                  Format conseillé : 1080×1920.
-                </small>
+
+              <!-- ✅ Image de réussite (au lieu du placeholder screenshot) -->
+              <div class="phone" style="padding:0">
+                <img
+                  src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1200&q=80"
+                  alt="Réussite - préparation à l’entretien de naturalisation et à l’examen civique"
+                  style="width:100%; height:100%; object-fit:cover;"
+                  loading="lazy"
+                />
               </div>
+
+              <p class="sub" style="margin:8px 0 0; text-align:center;">
+                Une préparation sérieuse pour aborder l’entretien et l’examen civique avec confiance.
+              </p>
 
               <div class="grid3">
                 <div class="card">
@@ -508,8 +523,20 @@
           </div>
 
           <div style="display:flex; gap:12px; flex-wrap:wrap; align-items:center;">
-            <a class="cta" id="ctaBottom" href="#" rel="noopener" target="_blank">Télécharger sur Google Play</a>
-            <a class="play-badge" id="badgeBottom" href="#" rel="noopener" target="_blank" aria-label="Disponible sur Google Play">
+            <!-- ✅ CTA BAS: lien direct -->
+            <a class="cta"
+               href="https://play.google.com/store/apps/details?id=com.dataadvans.prepanaturalisation"
+               rel="noopener"
+               target="_blank">
+              Télécharger sur Google Play
+            </a>
+
+            <!-- ✅ Badge officiel -->
+            <a class="play-badge"
+               href="https://play.google.com/store/apps/details?id=com.dataadvans.prepanaturalisation"
+               rel="noopener"
+               target="_blank"
+               aria-label="Disponible sur Google Play">
               <img
                 src="https://play.google.com/intl/en_us/badges/static/images/badges/fr_badge_web_generic.png"
                 alt="Disponible sur Google Play"
@@ -528,8 +555,8 @@
             © <span id="year"></span> PrépaNaturalisation • Tous droits réservés
           </div>
           <div style="display:flex; gap:14px; flex-wrap:wrap;">
-            <!-- Remplace par tes URLs -->
             <a href="#top">Haut de page</a>
+            <!-- Remplace par tes URLs -->
             <a href="https://example.com/politique-confidentialite.html">Politique de confidentialité</a>
             <a href="mailto:contact@example.com">Contact</a>
           </div>
@@ -542,14 +569,7 @@
     // Set year
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    // Inject Google Play URL (single source of truth)
-    const playUrl = (window.__APP && window.__APP.playUrl) || "#";
-    ["ctaTop","ctaBottom","badgeTop","badgeBottom"].forEach(id => {
-      const el = document.getElementById(id);
-      if (el) el.href = playUrl;
-    });
-
-    // Smooth scroll for internal anchors (nice UX)
+    // Smooth scroll for internal anchors only
     document.querySelectorAll('a[href^="#"]').forEach(a => {
       a.addEventListener("click", (e) => {
         const href = a.getAttribute("href");
